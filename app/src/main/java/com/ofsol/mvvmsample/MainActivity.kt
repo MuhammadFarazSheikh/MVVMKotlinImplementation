@@ -17,14 +17,14 @@ class MainActivity : AppCompatActivity(),Observer<Object> {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        setupMvvmModelInstance()
-        setupLiveDataListener()
+//        setupMvvmModelInstance()
+//        setupLiveDataListener()
     }
 
     /*SETUP MVVM MODEL INSTANCE*/
     private fun setupMvvmModelInstance()
     {
-        mvvmModel = ViewModelProviders.of(this).get(MVVMModel::class.java)
+//        mvvmModel = ViewModelProviders.of(this).get(MVVMModel::class.java)
     }
 
     /*SETUP LIVE DATA LISTENER*/
