@@ -3,8 +3,15 @@ package com.ofsol.mvvmsample.mvvm
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class MVVMModel<T>(var mutableLiveData: MutableLiveData<T>):ViewModel()
+class MVVMModel<T>:ViewModel
 {
+    private lateinit var mutableLiveData:MutableLiveData<T>
+
+    constructor()
+    {
+        mutableLiveData = MutableLiveData()
+    }
+
     /*GET LIVE DATA FROM API CALL OR BY ANY WAY USING GENERIC TYPES*/
     public fun getData():MutableLiveData<T>
     {

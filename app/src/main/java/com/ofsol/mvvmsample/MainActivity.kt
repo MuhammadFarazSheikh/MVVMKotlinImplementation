@@ -3,36 +3,36 @@ package com.ofsol.mvvmsample
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.ofsol.mvvmsample.mvvm.MVVMModel
-import java.util.*
+import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(),Observer<Object> {
+class MainActivity : AppCompatActivity(),Observer<String> {
 
-    private lateinit var mvvmModel: MVVMModel<Object>
+    private lateinit var mvvmModel: MVVMModel<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        setupMvvmModelInstance()
-//        setupLiveDataListener()
+        setupMvvmModelInstance()
+        setupLiveDataListener()
     }
 
-    /*SETUP MVVM MODEL INSTANCE*/
+    /*SETUP MVVM MODEL INSTANCE FOR MAKING IT GENERIC IN KOTLIN*/
     private fun setupMvvmModelInstance()
     {
-//        mvvmModel = ViewModelProviders.of(this).get(MVVMModel::class.java)
+        mvvmModel = MVVMModel()
     }
 
     /*SETUP LIVE DATA LISTENER*/
     private fun setupLiveDataListener()
     {
         mvvmModel.getData().observe(this,this)
+        mvvmModel.getSampleData()
     }
 
-    override fun onChanged(t: Object?) {
+    override fun onChanged(t: String?) {
+        tvLable.text = t
     }
 }
