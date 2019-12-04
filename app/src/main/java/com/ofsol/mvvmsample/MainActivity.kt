@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity(),Observer<String> {
     /*SETUP MVVM MODEL INSTANCE FOR MAKING IT GENERIC IN KOTLIN*/
     private fun setupMvvmModelInstance()
     {
-        mvvmModel = MVVMModel()
+        mvvmModel = ViewModelProviders.of(this).get(MVVMModel<String>()::class.java)
     }
 
     /*SETUP LIVE DATA LISTENER*/

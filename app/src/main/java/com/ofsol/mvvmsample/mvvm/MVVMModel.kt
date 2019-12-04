@@ -9,7 +9,7 @@ class MVVMModel<T>:ViewModel
 
     constructor()
     {
-        mutableLiveData = MutableLiveData()
+        mutableLiveData = MutableLiveData<T>()
     }
 
     /*GET LIVE DATA FROM API CALL OR BY ANY WAY USING GENERIC TYPES*/
